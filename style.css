@@ -1,0 +1,930 @@
+/* ======================================== */
+/* RESET */
+/* ======================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:#040912;
+  color:white;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ======================================== */
+/* BACKGROUND */
+/* ======================================== */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top,
+  rgba(0,120,255,.15),transparent 30%),
+
+  linear-gradient(to bottom,#02060d,#09101c,#02060d);
+
+  z-index:-2;
+}
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background-image:
+  linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+
+  background-size:60px 60px;
+
+  z-index:-1;
+}
+
+/* ======================================== */
+/* HERO SECTION */
+/* ======================================== */
+
+.hero{
+
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  position:relative;
+
+  padding:40px;
+}
+
+.light{
+
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  background:
+  radial-gradient(circle,
+  rgba(0,160,255,.2),transparent 70%);
+
+  filter:blur(30px);
+
+  animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(40px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+.top-text{
+
+  color:#8ea4bb;
+
+  letter-spacing:5px;
+
+  margin-bottom:20px;
+
+  z-index:2;
+}
+
+.title{
+
+  font-size:110px;
+
+  font-family:'Cinzel',serif;
+
+  color:#f2dfbb;
+
+  z-index:2;
+}
+
+.subtitle{
+
+  margin-top:20px;
+
+  color:#8ea4bb;
+
+  letter-spacing:4px;
+
+  z-index:2;
+}
+
+.divider{
+
+  width:300px;
+  height:2px;
+
+  background:
+  linear-gradient(to right,
+  transparent,#f2dfbb,transparent);
+
+  margin:40px auto;
+}
+
+.description{
+
+  max-width:700px;
+
+  line-height:1.8;
+
+  color:#97a9bf;
+
+  z-index:2;
+}
+
+nav{
+
+  position:absolute;
+
+  bottom:40px;
+
+  display:flex;
+
+  gap:40px;
+
+  z-index:2;
+}
+
+nav a{
+
+  text-decoration:none;
+
+  color:white;
+
+  letter-spacing:3px;
+
+  transition:.3s;
+}
+
+nav a:hover{
+
+  color:#cc0000;
+}
+
+/* ======================================== */
+/* CHAMPIONS SECTION */
+/* ======================================== */
+
+.champions-section{
+
+  padding:150px 8%;
+}
+
+.champions-top{
+
+  text-align:center;
+
+  margin-bottom:100px;
+}
+
+.champions-top h2{
+
+  font-size:52px;
+
+  font-family:'Cinzel',serif;
+
+  color:#f2dfbb;
+
+  margin-bottom:20px;
+}
+
+.champions-top p{
+
+  max-width:700px;
+
+  margin:auto;
+
+  color:#8ea4bb;
+
+  line-height:1.8;
+}
+
+/* ======================================== */
+/* CAROUSEL */
+/* ======================================== */
+
+.champions-carousel{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:60px;
+
+  perspective:2000px;
+}
+
+.side-column{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:40px;
+}
+
+.left-rotate{
+
+  transform:
+  rotateY(30deg);
+}
+
+.right-rotate{
+
+  transform:
+  rotateY(-30deg);
+}
+
+.champion-card{
+
+  width:300px;
+
+  overflow:hidden;
+
+  border-radius:35px;
+
+  background:#060a12;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:.5s;
+
+  position:relative;
+
+  box-shadow:
+  0 0 40px rgba(0,0,0,.4);
+}
+
+.champion-card:hover{
+
+  transform:
+  translateY(-10px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 60px rgba(214,171,103,.2);
+}
+
+.active-card{
+
+  width:420px;
+
+  animation:floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-25px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+.card-image{
+
+  height:500px;
+
+  background-size:cover;
+  background-position:center;
+
+  position:relative;
+}
+
+.overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(to top,
+  rgba(0,0,0,.95),transparent 45%);
+}
+
+.card-top-content{
+
+  position:absolute;
+
+  left:30px;
+  bottom:30px;
+
+  z-index:2;
+}
+
+.card-top-content h3{
+
+  font-size:40px;
+
+  color:#dba81b;
+
+  font-family:'Cinzel',serif;
+
+  margin-bottom:20px;
+}
+
+.card-top-content button,
+.hero-start-btn{
+
+  background:
+  linear-gradient(to right,#ebac00,#d19107);
+
+  border:none;
+
+  padding:14px 30px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+.card-top-content button:hover,
+.hero-start-btn:hover{
+
+  transform:scale(1.05);
+
+  box-shadow:
+  0 0 20px rgba(161, 0, 0, 0.795);
+}
+
+/* ======================================== */
+/* RPG SECTION */
+/* ======================================== */
+
+.hero-rpg-section,
+.mission-section{
+
+  padding:80px 8%;
+
+  position:relative;
+}
+
+.hero-rpg-topbar,
+.mission-topbar{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:50px;
+}
+
+.hero-logo,
+.mission-title{
+
+  font-size:50px;
+
+  font-family:'Cinzel',serif;
+
+  color:#ddb46d;
+}
+
+.hero-status,
+.mission-status{
+
+  display:flex;
+
+  gap:30px;
+
+  color:#9fb2c7;
+}
+
+/* ======================================== */
+/* RPG CONTENT */
+/* ======================================== */
+
+.hero-rpg-content{
+
+  display:grid;
+
+  grid-template-columns:250px 1fr 350px;
+
+  gap:40px;
+
+  align-items:center;
+}
+
+/* MENU */
+
+.hero-menu{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+}
+
+.hero-menu-card{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  padding:12px;
+
+  transition:.4s;
+}
+
+.hero-menu-card:hover,
+.hero-menu-card.active{
+
+  border:1px solid #ddb46d;
+
+  box-shadow:
+  0 0 25px rgba(221,180,109,.15);
+}
+
+.hero-menu-card img{
+
+  width:90px;
+  height:90px;
+
+  object-fit:cover;
+}
+
+.hero-menu-card h4{
+
+  margin-bottom:10px;
+
+  color:white;
+}
+
+.hero-menu-card span{
+
+  color:#ddb46d;
+}
+
+/* ======================================== */
+/* CHARACTER */
+/* ======================================== */
+
+.hero-character-area{
+
+  position:relative;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  height:700px;
+}
+
+.magic-circle{
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  border-radius:50%;
+
+  border:10px solid rgba(255,220,150,.8);
+
+  box-shadow:
+  0 0 50px rgba(255,220,150,.3),
+  inset 0 0 50px rgba(255,220,150,.2);
+
+  animation:spin 18s linear infinite;
+}
+
+@keyframes spin{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.hero-character{
+
+  width:420px;
+  height:650px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  position:relative;
+
+  z-index:2;
+
+  box-shadow:
+  0 0 40px rgba(0,0,0,.5);
+}
+
+/* ======================================== */
+/* INFO */
+/* ======================================== */
+
+.hero-info h2{
+
+  font-size:52px;
+
+  color:#e5c17d;
+
+  font-family:'Cinzel',serif;
+
+  margin-bottom:10px;
+}
+
+.hero-info p{
+
+  color:#97a9bf;
+
+  margin-bottom:40px;
+}
+
+.status-bars{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+}
+
+.status-line span{
+
+  display:block;
+
+  margin-bottom:10px;
+
+  color:white;
+}
+
+.bar{
+
+  width:100%;
+
+  height:8px;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,.08);
+
+  overflow:hidden;
+}
+
+.bar div{
+
+  height:100%;
+
+  background:
+  linear-gradient(to right,#ffe0a1,#d69c47);
+
+  box-shadow:
+  0 0 20px rgba(255,220,150,.4);
+}
+
+.hero-start-btn{
+
+  margin-top:50px;
+
+  font-size:20px;
+}
+
+/* ======================================== */
+/* MISSION */
+/* ======================================== */
+
+.mission-content{
+
+  display:grid;
+
+  grid-template-columns:1fr 420px;
+
+  gap:60px;
+
+  align-items:center;
+}
+
+.mission-map{
+
+  position:relative;
+
+  height:600px;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+}
+
+.planet-ring{
+
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  border-radius:50%;
+
+  border:12px solid rgba(255,180,80,.2);
+
+  transform:rotateX(75deg);
+}
+
+.radar-card{
+
+  width:380px;
+  height:380px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  clip-path:
+  polygon(50% 0%,100% 30%,85% 100%,15% 100%,0% 30%);
+
+  position:relative;
+
+  backdrop-filter:blur(10px);
+}
+
+.radar-lines{
+
+  position:absolute;
+
+  inset:50px;
+
+  border:2px solid rgba(255,220,150,.5);
+
+  clip-path:
+  polygon(50% 0%,100% 30%,85% 100%,15% 100%,0% 30%);
+}
+
+.radar-center{
+
+  position:absolute;
+
+  width:20px;
+  height:20px;
+
+  border-radius:50%;
+
+  background:#fff2c6;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  box-shadow:
+  0 0 30px rgba(255,230,180,.8);
+}
+
+/* ======================================== */
+/* MISSION DETAILS */
+/* ======================================== */
+
+.radar-center {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.center-image {
+  width: 320px; 
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #00ffcc; 
+  box-shadow: 0 0 25px #00ffcc;
+}
+
+.mission-banner{
+
+  position:relative;
+
+  height:220px;
+
+  overflow:hidden;
+
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.mission-banner img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.mission-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(to top,
+  rgba(0,0,0,.9),transparent);
+}
+
+.mission-banner-text{
+
+  position:absolute;
+
+  left:20px;
+  bottom:20px;
+
+  font-size:38px;
+
+  color:#f2ddb0;
+
+  font-family:'Cinzel',serif;
+}
+
+.mission-box{
+
+  margin-top:30px;
+
+  padding:30px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.mission-box h3{
+
+  color:#ddb46d;
+
+  margin-bottom:20px;
+}
+
+.mission-box ul{
+
+  line-height:2;
+
+  color:#a9bbce;
+
+  padding-left:20px;
+}
+
+/* ======================================== */
+/* RESPONSIVO */
+/* ======================================== */
+
+@media(max-width:1200px){
+
+  .hero-rpg-content,
+  .mission-content,
+  .champions-carousel{
+
+    grid-template-columns:1fr;
+
+    flex-direction:column;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .title{
+
+    font-size:60px;
+  }
+
+  nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+  }
+
+  .hero-character{
+
+    width:100%;
+    height:500px;
+  }
+
+  .active-card,
+  .champion-card{
+
+    width:100%;
+  }
+
+  .magic-circle{
+
+    width:320px;
+    height:320px;
+  }
+
+}
+
+/* Declaração da Fundadora */
+.fundadora-box {
+  background: linear-gradient(145deg, #241c0b, #090113);
+  border-radius: 2rem;
+  padding: 2rem;
+  border: 2px solid #f2dfbb;
+}
+
+.fundadora-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #312614;
+  padding-bottom: 1rem;
+}
+
+.fundadora-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #d69c47, #d19107);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.fundadora-texto {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.fundadora-texto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fundadora-texto::-webkit-scrollbar-track {
+  background: #d69c47;
+  border-radius: 10px;
+}
+
+.fundadora-texto::-webkit-scrollbar-thumb {
+  background: #e5c17d;
+  border-radius: 10px;
+}
+
+.fundadora-texto p {
+  margin-bottom: 1rem;
+}
